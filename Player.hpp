@@ -26,6 +26,7 @@ public:
     virtual void makeMove(Player* opponent);
     bool allShipsSunk() const;
     void displayGrid();
+    inline virtual char* getName() {return playerName;}
     virtual int getRowToPlaceShip() = 0;
     virtual int getColToPlaceShip() = 0;
     virtual bool getOrientationToPlaceShip() = 0;

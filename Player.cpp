@@ -49,6 +49,7 @@ void Player::placeAllShips()
 }
 void Player::makeMove(Player *opponent)
 {
+    std::cout << "It is " << getName() << "'s turn!" << std::endl;
     while (true)
     {
         std::cout << "Make an attack! Where would you like to attack?" << std::endl;
@@ -91,6 +92,10 @@ void Player::makeMove(Player *opponent)
             std::cout << "You are trying to hit somewhere you have already shot at, try again." << std::endl;
         }
     }
+    std::cout << opponent->getName() << "'s grid:" << std::endl;
+    opponent->displayGrid();
+    std::cout << getName() << "'s grid:" << std::endl;
+    displayGrid();
 }
 bool Player::allShipsSunk() const
 {
