@@ -33,8 +33,8 @@ private:
 
 public:
   Grid();
-  ~Grid();
-  inline bool isTileOccupied(int row, int col) const{return VALID_GRID_INPUT(row,col)? (cells[col][row] != '~') : false ;}
+  ~Grid() {}
+  inline bool isTileOccupied(int row, int col) const{return VALID_GRID_INPUT(row,col)? (cells[row][col] != '~') : false ;}
 
   bool inBounds(int row,int col,int shipSize,bool horizontal)const;
 
@@ -48,9 +48,4 @@ public:
 
   void printGrid();
 };
-
-Grid::~Grid()
-{
-
-}
 

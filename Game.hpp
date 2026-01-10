@@ -12,7 +12,7 @@ private:
     Player* player2;
 public:
     Game(Player* p1, Player* p2);
-    ~Game();
+    ~Game() {}
     void setup();
     void start();
     bool isGameOver() const;

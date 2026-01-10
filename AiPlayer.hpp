@@ -4,12 +4,12 @@
 #include "Player.hpp"
 // -------------------------------------------
 
-class AiPlayer
+class AiPlayer : public Player
 {
 private:
     /* data */
 public:
-    AiPlayer(/* args */);
+    AiPlayer(const char* name);
     ~AiPlayer();
     virtual int getRowToPlaceShip();
     virtual int getColToPlaceShip();

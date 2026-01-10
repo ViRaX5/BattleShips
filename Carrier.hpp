@@ -9,6 +9,6 @@ class Carrier :  public Ship
 { 
 public:
   Carrier() : Ship("Carrier",5) {}
-  ~Carrier();
+  ~Carrier(){}
 };
 

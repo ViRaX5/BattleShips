@@ -6,19 +6,38 @@
 #include <cctype>
 // -------------------------------------------
 
+HumanPlayer::HumanPlayer(const char* name) : Player(name)
+{
+}
+
 int HumanPlayer::getRowToPlaceShip()
 {
-    std::cout << "Please choose in what row you want to place your ship" << std::endl;
+    std::cout << "Please choose a row (0-9)" << std::endl;
     int row = -1;
-    std::cin >> row;
+    while (!(row >= 0 && row <= 9))
+    {
+        std::cin >> row;
+        //row--;
+        if (!(row >= 0 && row <= 9))
+        {
+            std::cout << "Invalid row number, try again" << std::endl;
+        }  
+    }
     return row;
 }
 
 int HumanPlayer::getColToPlaceShip()
 {
-    std::cout << "Please choose in what column you want to place your ship" << std::endl;
+    std::cout << "Please choose a column (0-9)" << std::endl;
     int column = -1;
-    std::cin >> column;
+    while (!(column >= 0 && column <= 9))
+    {
+        std::cin >> column;
+        if (!(column >= 0 && column <= 9))
+        {
+            std::cout << "Invalid column number, try again" << std::endl;
+        }  
+    }
     return column;
 }
 
@@ -26,15 +45,15 @@ bool HumanPlayer::getOrientationToPlaceShip()
 {
     while (true)
     {
-        std::cout << "Please choose in what orientation you want the ship to be (horizontal/vertical)" << endl;
+        std::cout << "Please choose in what orientation you want the ship to be (horizontal/vertical/h/v)" << std::endl;
         std::string orientation;
         std::cin >> orientation;
         std::transform(orientation.begin(), orientation.end(), orientation.begin(), ::tolower);
-        if (orientation == "horizontal")
+        if (orientation == "horizontal" || orientation == "h")
         {
             return true;
         }
-        else if (orientation == "vertical")
+        else if (orientation == "vertical" || orientation == "v")
         {
             return false;
         }

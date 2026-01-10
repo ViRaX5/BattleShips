@@ -3,6 +3,8 @@
 #include "AiPlayer.hpp"
 // -------------------------------------------
 
+AiPlayer::AiPlayer(const char* name) : Player(name) {}
+
 int AiPlayer::getRowToPlaceShip()
 {
     return getRandomCoordinate();

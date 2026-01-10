@@ -18,14 +18,15 @@ private:
   bool horizontal;
 
 public:
-  Ship(const char *shipName, int shipSize): size(shipSize) ,hitsTaken(0) {strcpy(name, shipName);}
+  Ship(const char *shipName, int shipSize): size(shipSize) ,hitsTaken(0) {name = new char[strlen(shipName) + 1]; strcpy(name, shipName);}
   virtual ~Ship() {delete[] name;}
   virtual void takeHit();
   inline bool isSunk() const {return  hitsTaken >= size;}
   inline int getSize() {return size;}
-  inline void setCoord(int row, int col) {this->row = row; column = col;}
+  inline void setCoord(int row, int col, bool hor) {this->row = row; column = col; horizontal = hor;}
   inline int getRow() {return row;}
   inline int getCol() {return column;}
+  //inline void setHorizontal(bool hor) {horizontal = hor;}
   inline bool isHorizontal() {return horizontal;}
   inline char* getName() {return name;}
 };

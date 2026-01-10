@@ -21,9 +21,9 @@ private:
     Grid grid;
 public:
     Player(const char* name);
-    virtual ~Player();
+    ~Player();
     virtual void placeAllShips();
-    virtual void makeMove(Player* opponent);
+    void makeMove(Player* opponent);
     bool allShipsSunk() const;
     void displayGrid();
     inline virtual char* getName() {return playerName;}

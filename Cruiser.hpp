@@ -11,5 +11,5 @@ private:
   /* data */
 public:
   Cruiser() : Ship("Cruiser", 3) {}
-  ~Cruiser();
+  ~Cruiser(){}
 };

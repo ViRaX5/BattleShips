@@ -59,7 +59,7 @@ void Grid::markHit(int row, int col)
 {
   using namespace std;
   if (!VALID_GRID_INPUT(row, col))
-    throw out_of_range("MarkHit out of Bounds!");
+    cout << "MarkMiss out of Bounds! try again" << endl;
   if (cells[row][col] == 'X' || cells[row][col] == 'M')
     return;
   cells[row][col] = 'X';
@@ -69,7 +69,7 @@ void Grid::markMiss(int row, int col)
 {
   using namespace std;
   if (!VALID_GRID_INPUT(row, col))
-    throw out_of_range("MarkMiss out of Bounds!");
+    cout << "MarkMiss out of Bounds! try again" << endl;
   if (cells[row][col] == 'X' || cells[row][col] == 'M')
     return;
   cells[row][col] = 'M';
@@ -85,7 +85,7 @@ void Grid::printGrid()
 {
   for (int i = 0; i < GRID_X_AXIS_MAX; i++)
   {
-    for (int j = 0; i < GRID_Y_AXIS_MAX; j++)
+    for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
     {
       std::cout << cells[i][j] << " ";
     }

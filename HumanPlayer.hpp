@@ -10,7 +10,7 @@ class HumanPlayer : public Player
 private:
     /* data */
 public:
-    HumanPlayer(/* args */);
+    HumanPlayer(const char* name);
     ~HumanPlayer();
     virtual int getRowToPlaceShip();
     virtual int getColToPlaceShip();

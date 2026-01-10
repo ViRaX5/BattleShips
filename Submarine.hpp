@@ -9,5 +9,5 @@ class Submarine : public Ship
 private:
 public:
   Submarine() : Ship("Submarine", 3) {}
-  ~Submarine();
+  ~Submarine(){}
 };
