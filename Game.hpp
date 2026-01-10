@@ -2,20 +2,18 @@
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
+#include "Player.hpp"
+
 
 class Game
 {
 private:
-    /* data */
+    Player* player1;
+    Player* player2;
 public:
-    Game(/* args */);
+    Game(Player* p1, Player* p2);
     ~Game();
+    void setup();
+    void start();
+    bool isGameOver() const;
 };
-
-Game::Game(/* args */)
-{
-}
-
-Game::~Game()
-{
-}
