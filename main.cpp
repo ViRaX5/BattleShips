@@ -1,8 +1,8 @@
 //THIS IS AN EXAMPLE!!! YOU CAN CHANGE IT
 
 #include <iostream>
-#include <cstdlib>   // For std::rand(), std::srand()
-#include <ctime>     // For std::time()
+#include <cstdlib>   
+#include <ctime>     
 #include "Game.hpp"
 #include "HumanPlayer.hpp"
 #include "AiPlayer.hpp"

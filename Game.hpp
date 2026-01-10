@@ -16,4 +16,5 @@ public:
     void setup();
     void start();
     bool isGameOver() const;
+    void displayStatus();
 };

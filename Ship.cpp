@@ -10,7 +10,7 @@ increments hitsTaken and Prints "<shipname> got hit!"
 void Ship::takeHit()
 {
   hitsTaken++;
-  std::cout << "A shit was hit!" << std::endl;
+  std::cout << "A ship was hit!" << std::endl;
   if (hitsTaken == size)
   {
     std::cout << name << " sunk!" << std::endl;

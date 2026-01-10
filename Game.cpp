@@ -20,10 +20,6 @@ void Game::start()
     bool p1Won = true;
     while (true)
     {
-        std::cout << "Player 1 display:\n";
-        player1->displayGrid();
-        std::cout << "Player 2 display:\n";
-        player2->displayGrid();
         player1->makeMove(player2);
         if (player2->allShipsSunk())
         {
@@ -35,11 +31,25 @@ void Game::start()
             p1Won = false;
             break;
         }
+        displayStatus();
     }
+    std::cout << player1->getName() << "'s board:" << std::endl;
+    player1->getGrid().printGrid();
+    std::cout << player2->getName() << "'s board:" << std::endl;
+    player2->getGrid().printGrid();
     std::cout << "Congragulation!\n" << (p1Won ? player1->getName() : player2->getName()) << " won!" << std::endl;
 }
 
 bool Game::isGameOver() const
 {
     return (player1->allShipsSunk() || player2->allShipsSunk());   
+}
+
+void Game::displayStatus()
+{
+    using namespace std;
+    cout << player1->getName() << "'s board:" << endl;
+    player1->displayGrid();
+    // cout << player2->getName() << "'s board:" << endl;
+    // player2->displayGrid();
 }

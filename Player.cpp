@@ -24,7 +24,7 @@ Player::~Player()
     for (int i = 0; i < NUM_OF_SHIPS; i++)
     {
         delete ships[i];
-    } 
+    }
 }
 
 void Player::placeAllShips()
@@ -36,17 +36,30 @@ void Player::placeAllShips()
         int row = getRowToPlaceShip();
         int col = getColToPlaceShip();
         bool orientation = getOrientationToPlaceShip();
-        if ((grid.inBounds(row, col, ships[i]->getSize(), orientation)) && (!grid.isTileOccupied(row, col)))
+        if (!grid.inBounds(row, col, ships[i]->getSize(), orientation))
         {
-            grid.placeShip(row, col, ships[i]->getSize(), orientation, 'S');
-            ships[i]->setCoord(row, col,orientation);
-            //ships[i]->setHorizontal(orientation);
-            i++;
+            std::cout << "Can't place ship there, out of bounds, try again" << std::endl;
+            continue;
         }
-        else
+        bool overlap = false;
+        for (int k = 0; k < ships[i]->getSize(); k++)
         {
-            std::cout << "Invalid ship placement attempt, try again" << std::endl;
+            int r = row + (orientation ? 0 : k);
+            int c = col + (orientation ? k : 0);
+            if (grid.isTileOccupied(r, c))
+            {
+                overlap = true;
+                break;
+            }
         }
+        if (overlap)
+        {
+            std::cout << "Can't place ship, it will overlap with other ships!" << std::endl;
+            continue;
+        }
+        grid.placeShip(row, col, ships[i]->getSize(), orientation, 'S');
+        ships[i]->setCoord(row, col, orientation);
+        i++;
     }
 }
 void Player::makeMove(Player *opponent)
@@ -54,6 +67,8 @@ void Player::makeMove(Player *opponent)
     std::cout << "It is " << getName() << "'s turn!" << std::endl;
     while (true)
     {
+        std::cout << opponent->getName() << "'s grid:" << std::endl;
+        opponent->displayGrid();
         std::cout << "Make an attack! Where would you like to attack?" << std::endl;
         int row = getRowToPlaceShip();
         int col = getColToPlaceShip();
@@ -66,14 +81,14 @@ void Player::makeMove(Player *opponent)
         {
             for (int i = 0; i < NUM_OF_SHIPS; i++)
             {
-                std::cout << "Debug, searching ships, current ship is: " << ships[i]->getName() << std::endl;
+                //std::cout << "Debug, searching ships, current ship is: " << ships[i]->getName() << std::endl;
                 if (opponent->ships[i]->isHorizontal())
                 {
                     if (row == opponent->ships[i]->getRow())
                     {
                         if (col >= opponent->ships[i]->getCol() && col < (opponent->ships[i]->getCol() + opponent->ships[i]->getSize()))
                         {
-                            std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
+                            //std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
                             opponent->ships[i]->takeHit();
                             break;
                         }
@@ -85,13 +100,12 @@ void Player::makeMove(Player *opponent)
                     {
                         if (row >= opponent->ships[i]->getRow() && row < (opponent->ships[i]->getRow() + opponent->ships[i]->getSize()))
                         {
-                            std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
+                            //std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
                             opponent->ships[i]->takeHit();
                             break;
                         }
                     }
                 }
-                
             }
             opponent->grid.markHit(row, col);
             break;
@@ -101,10 +115,6 @@ void Player::makeMove(Player *opponent)
             std::cout << "You are trying to hit somewhere you have already shot at, try again." << std::endl;
         }
     }
-    std::cout << opponent->getName() << "'s grid:" << std::endl;
-    opponent->displayGrid();
-    std::cout << getName() << "'s grid:" << std::endl;
-    displayGrid();
 }
 bool Player::allShipsSunk() const
 {
@@ -119,6 +129,7 @@ bool Player::allShipsSunk() const
 }
 void Player::displayGrid()
 {
+    // grid.printGrid();
     for (int i = 0; i < GRID_X_AXIS_MAX; i++)
     {
         for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
@@ -134,5 +145,4 @@ void Player::displayGrid()
         }
         std::cout << std::endl;
     }
-    
 }

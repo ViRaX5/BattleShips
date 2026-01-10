@@ -30,4 +30,5 @@ public:
     virtual int getRowToPlaceShip() = 0;
     virtual int getColToPlaceShip() = 0;
     virtual bool getOrientationToPlaceShip() = 0;
+    inline virtual Grid getGrid() const {return grid;}
 };
