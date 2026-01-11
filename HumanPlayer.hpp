@@ -12,7 +12,7 @@ private:
     /* data */
 public:
     HumanPlayer(const char* name);
-    ~HumanPlayer();
+    ~HumanPlayer() {}
     virtual int getRowToPlaceShip();
     virtual int getColToPlaceShip();
     virtual bool getOrientationToPlaceShip();

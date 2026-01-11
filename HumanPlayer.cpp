@@ -39,7 +39,6 @@ int HumanPlayer::getRowToPlaceShip()
             std::cout << "Invalid row number, try again" << std::endl;
         }  
     }
-    std::cout << "DEBUG: printing row" << row << std::endl;
     return row;
 }
 
@@ -70,7 +69,6 @@ int HumanPlayer::getColToPlaceShip()
             std::cout << "Invalid column number, try again" << std::endl;
         }  
     }
-    std::cout << "DEBUG: printing column" << column << std::endl;
     return column;
 }
 

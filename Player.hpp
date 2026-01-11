@@ -29,7 +29,7 @@ public:
     * Notes   : Does not start gameplay; only sets initial state.
     * ----------------------------------------------------------------------------------------- */
     Player(const char* name);
-    ~Player();
+    virtual ~Player();
     /* -----------------------------------------------------------------------------------------
     * Function: Player::placeAllShips
     * Purpose : Places all ships onto the player's grid (virtual/overridden by Human/AI).

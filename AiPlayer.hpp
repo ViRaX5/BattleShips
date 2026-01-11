@@ -12,7 +12,7 @@ private:
     /* data */
 public:
     AiPlayer(const char* name);
-    ~AiPlayer();
+    ~AiPlayer() {}
     virtual int getRowToPlaceShip();
     virtual int getColToPlaceShip();
     virtual bool getOrientationToPlaceShip();
