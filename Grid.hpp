@@ -24,7 +24,6 @@
 //enum Orientation{horizontal,Vertical};
 //enum AttackResult{Hit,Miss,AlreadyShot,Invalid};
 
-
 class Grid
 {
 private:
@@ -91,8 +90,9 @@ public:
  * ----------------------------------------------------------------------------------------- */
   char getCell(int row,int col)const;
 
+  // HELPER FUNCTIONS:
   void printGrid();
-  // Added by Dor:
+  
   void print(bool showAxes = true, bool hideShips = false) const;
 
   bool isInBounds(int row,int col) const;

@@ -5,7 +5,7 @@
 // -------------------------------------------
 #include "Ship.hpp"
 // -------------------------------------------
-
+// BattleShip Size = 4
 class BattleShip : public Ship
 {
 public:

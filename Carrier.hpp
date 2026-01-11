@@ -5,7 +5,7 @@
 // -------------------------------------------
 #include "Ship.hpp"
 // -------------------------------------------
-
+// Carrier Size = 5
 class Carrier :  public Ship
 { 
 public:

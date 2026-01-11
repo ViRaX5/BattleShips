@@ -5,7 +5,7 @@
 // -------------------------------------------
 #include "Ship.hpp"
 // -------------------------------------------
-
+// Cruiser Size = 3
 class Cruiser : public Ship
 {
 private:

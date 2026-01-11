@@ -7,9 +7,7 @@
 // -------------------------------------------
 
 class HumanPlayer : public Player
-{
-private:
-    /* data */
+{    
 public:
     HumanPlayer(const char* name);
     ~HumanPlayer();
@@ -17,5 +15,4 @@ public:
     virtual int getColToPlaceShip();
     virtual bool getOrientationToPlaceShip();
 };
-
 

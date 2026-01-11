@@ -65,6 +65,7 @@ void Player::placeAllShips()
         i++;
     }
 }
+
 void Player::makeMove(Player *opponent)
 {
     std::cout << "It is " << getName() << "'s turn!" << std::endl;
@@ -119,6 +120,7 @@ void Player::makeMove(Player *opponent)
         }
     }
 }
+
 bool Player::allShipsSunk() const
 {
     for (int i = 0; i < NUM_OF_SHIPS; i++)
@@ -130,23 +132,5 @@ bool Player::allShipsSunk() const
     }
     return true;
 }
-void Player::displayGrid()
-{
-    // grid.printGrid();
-    // for (int i = 0; i < GRID_X_AXIS_MAX; i++)
-    // {
-    //     for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
-    //     {
-    //         if (grid.getCell(i, j) == 'S')
-    //         {
-    //             std::cout << "~ ";
-    //         }
-    //         else
-    //         {
-    //             std::cout << grid.getCell(i, j) << " ";
-    //         }
-    //     }
-    //     std::cout << std::endl;
-    // }
-    grid.print(true,true);
-}
+
+void Player::displayGrid(){grid.print(true,true);}
