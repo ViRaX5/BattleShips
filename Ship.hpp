@@ -66,7 +66,7 @@ public:
  * Notes   : Assumes the caller already validated that the coordinate + ship size fit the grid
  *           and that the placement does not overlap other ships.
  * ----------------------------------------------------------------------------------------- */
-  inline void setCoord(int row, int col, bool hor) {this->row = row; column = col; horizontal = hor;}
+  inline void setCoord(int r, int c, bool hor) {row = r; column = c; horizontal = hor;}
 
   /* -----------------------------------------------------------------------------------------
  * Function: <CLASS>::getRow

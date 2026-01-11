@@ -17,7 +17,7 @@
 class Player
 {
 private:
-    char *_playerName;
+    char *playerName;
     Ship* ships[NUM_OF_SHIPS];
     Grid grid;
 public:
@@ -30,7 +30,7 @@ public:
     * ----------------------------------------------------------------------------------------- */ 
     Player(const char* name);
     
-    ~Player();
+    virtual ~Player();
 
     /* -----------------------------------------------------------------------------------------
     * Function: Player::placeAllShips
@@ -60,7 +60,7 @@ public:
 
     void displayGrid();
 
-    inline virtual char* getName() {return _playerName;}
+    inline virtual char* getName() {return playerName;}
 
     virtual int getRowToPlaceShip() = 0;
 

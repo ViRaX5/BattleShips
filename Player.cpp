@@ -7,8 +7,8 @@
 
 Player::Player(const char *name)
 {
-    _playerName = new char[strlen(name) + 1];
-    strcpy(_playerName, name);
+    playerName = new char[strlen(name) + 1];
+    strcpy(playerName, name);
     BattleShip *b = new BattleShip();
     Carrier *ca = new Carrier();
     Cruiser *cr = new Cruiser();
@@ -23,7 +23,7 @@ Player::Player(const char *name)
 
 Player::~Player()
 {
-    delete[] _playerName;
+    delete[] playerName;
     for (int i = 0; i < NUM_OF_SHIPS; i++)
     {
         delete ships[i];

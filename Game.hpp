@@ -9,8 +9,8 @@
 class Game
 {
 private:
-    Player* _player1;
-    Player* _player2;
+    Player* player1;
+    Player* player2;
 public:
     /* -----------------------------------------------------------------------------------------
      * Function: Game::Game

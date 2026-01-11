@@ -109,7 +109,7 @@ void Grid::print(bool showAxes, bool hideShips) const
   // Print the top border line (each cell is 2 -> N*2)
   cout<< "   +";
   for (int i = 0; i < N*2; ++i){cout << "-";}
-  cout << "+\n";  
+  cout << "-+\n";  
   
   // Print each row: row number + cells
   for (int row = 0; row < N; ++row)
