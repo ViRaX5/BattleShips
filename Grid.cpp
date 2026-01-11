@@ -1,6 +1,10 @@
-//
+// Dor mandel;      ID : 315313825
+// Amit Lachman;    ID : 207448267
 // -------------------------------------------
 #include "Grid.hpp"
+//Added by Dor for GridPrint:
+#include <iostream>
+#include <iomanip>
 // -------------------------------------------
 
 Grid::Grid()
@@ -81,7 +85,7 @@ char Grid::getCell(int row, int col) const
 }
 
 // Helper Funcs:
-void Grid::printGrid()
+void Grid::printGrid() const
 {
   for (int i = 0; i < GRID_X_AXIS_MAX; i++)
   {

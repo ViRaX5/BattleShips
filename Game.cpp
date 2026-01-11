@@ -1,3 +1,5 @@
+// Dor mandel;      ID : 315313825
+// Amit Lachman;    ID : 207448267
 // -------------------------------------------
 #include "Game.hpp"
 // -------------------------------------------
@@ -56,4 +58,51 @@ void Game::displayStatus()
     player1->displayGrid();
     // cout << player2->getName() << "'s board:" << endl;
     // player2->displayGrid();
+}
+
+//-----------------------------------------------------
+// WINNER CONFETTI ANIMATION (Tryout)::
+//-----------------------------------------------------
+#include <iostream>
+#include <random>
+#include <thread>
+#include <chrono>
+//-----------------------------------------------------
+
+static void CLEAR_SCREEN()
+{
+    // checks if 32/64bit sys:
+    using namespace std;
+
+    #ifndef _WIN32
+        system("cls");
+    #else
+    cout << "\x1B[2J\x1B[X";
+    #endif
+}
+
+// add to Game::start():
+//  std::cout << "\nWinner is: " << winner->getName() << "\n";
+//  WinnerConfetti(winner->getName());
+static void winnerConfetti(const char* winnerName)
+{
+    using namespace std;
+    mt19937 rng(random_device{}());
+    uniform_int_distribution<int> pick(0,5);
+    const char conf[] = { '*' , '+' , 'o' , '.','^','@'};
+
+    for(int frame = 0; frame < 20 ; ++frame)
+    {
+        CLEAR_SCREEN();
+        cout<<"\n WINNER: "<<winnerName << "! :) ";
+    }
+
+    for (int row = 0; row < 12; ++row)
+    {
+        cout<<"   ";
+        for (int col = 0; col < 45; ++col){ conf[pick(rng)];}
+        cout<<"\n";
+    }
+    this_thread::sleep_for(chrono::milliseconds(75));
+    
 }
