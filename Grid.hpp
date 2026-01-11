@@ -40,7 +40,9 @@ public:
  * Notes   : Called automatically when a Grid is created.
  * ----------------------------------------------------------------------------------------- */
   Grid();
+  
   ~Grid() {}
+
 /* -----------------------------------------------------------------------------------------
  * Function: Grid::isTileOccupied
  * Purpose : Check if a cell already contains a ship or a previous hit.
@@ -49,6 +51,7 @@ public:
  * Notes   : Used to prevent overlapping ships.
  * ----------------------------------------------------------------------------------------- */
   inline bool isTileOccupied(int row, int col) const{return VALID_GRID_INPUT(row,col)? (cells[row][col] != '~') : false ;}
+
 /* -----------------------------------------------------------------------------------------
  * Function: Grid::inBounds
  * Purpose : Validate that a ship placement fits inside the grid.
@@ -57,6 +60,7 @@ public:
  * Notes   : Does not check overlap, only boundaries.
  * ----------------------------------------------------------------------------------------- */
   bool inBounds(int row,int col,int shipSize,bool horizontal)const;
+
 /* -----------------------------------------------------------------------------------------
  * Function: Grid::placeShip
  * Purpose : Place a ship symbol across consecutive cells (if placement already validated).
@@ -65,6 +69,7 @@ public:
  * Notes   : Caller should ensure inBounds + not occupied before calling.
  * ----------------------------------------------------------------------------------------- */
   void placeShip(int row,int col,int shipSize, bool horizontal, char symbol);
+
 /* -----------------------------------------------------------------------------------------
  * Function: Grid::markHit
  * Purpose : Mark a successful hit at (row,col) with 'X'.
@@ -73,6 +78,7 @@ public:
  * Notes   : Caller should prevent double-shot before calling.
  * ----------------------------------------------------------------------------------------- */
   void markHit(int row, int col);
+
 /* -----------------------------------------------------------------------------------------
  * Function: Grid::markMiss
  * Purpose : Mark a miss at (row,col) with 'M'.
@@ -81,6 +87,7 @@ public:
  * Notes   : Caller should prevent double-shot before calling.
  * ----------------------------------------------------------------------------------------- */
   void markMiss(int row, int col);
+
 /* -----------------------------------------------------------------------------------------
  * Function: Grid::getCell
  * Purpose : Return the cell character at (row,col).
