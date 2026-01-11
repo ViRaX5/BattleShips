@@ -21,8 +21,8 @@
 
 //Optional Helpers?
 //struct for Coord?
-enum Orientation{horizontal,Vertical};
-enum AttackResult{Hit,Miss,AlreadyShot,Invalid};
+//enum Orientation{horizontal,Vertical};
+//enum AttackResult{Hit,Miss,AlreadyShot,Invalid};
 
 
 class Grid
