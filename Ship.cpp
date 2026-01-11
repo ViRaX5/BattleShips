@@ -5,7 +5,7 @@
 #include <iostream>
 // -------------------------------------------
 
-/* summary:
+/*
 increments hitsTaken and Prints "<shipname> got hit!"
 */
 void Ship::takeHit()

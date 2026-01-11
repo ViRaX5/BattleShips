@@ -8,9 +8,7 @@
 #include <cctype>
 // -------------------------------------------
 
-HumanPlayer::HumanPlayer(const char* name) : Player(name)
-{
-}
+HumanPlayer::HumanPlayer(const char* name) : Player(name){}
 
 int HumanPlayer::getRowToPlaceShip()
 {

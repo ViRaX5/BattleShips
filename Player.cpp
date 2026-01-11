@@ -1,14 +1,14 @@
 // Dor Mandel;      ID : 315313825
 // Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
-
 #include "Player.hpp"
 #include <string.h>
+// -------------------------------------------
 
 Player::Player(const char *name)
 {
-    playerName = new char[strlen(name) + 1];
-    strcpy(playerName, name);
+    _playerName = new char[strlen(name) + 1];
+    strcpy(_playerName, name);
     BattleShip *b = new BattleShip();
     Carrier *ca = new Carrier();
     Cruiser *cr = new Cruiser();
@@ -23,7 +23,7 @@ Player::Player(const char *name)
 
 Player::~Player()
 {
-    delete[] playerName;
+    delete[] _playerName;
     for (int i = 0; i < NUM_OF_SHIPS; i++)
     {
         delete ships[i];

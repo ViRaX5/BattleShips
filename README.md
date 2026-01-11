@@ -11,6 +11,8 @@
 #                                                  ██         
 #  
 
+# -------------------------------------------
+
 # Battleship Game Assignment (C++)
 
 ## Overview

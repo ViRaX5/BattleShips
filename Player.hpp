@@ -17,7 +17,7 @@
 class Player
 {
 private:
-    char *playerName;
+    char *_playerName;
     Ship* ships[NUM_OF_SHIPS];
     Grid grid;
 public:
@@ -60,7 +60,7 @@ public:
 
     void displayGrid();
 
-    inline virtual char* getName() {return playerName;}
+    inline virtual char* getName() {return _playerName;}
 
     virtual int getRowToPlaceShip() = 0;
 

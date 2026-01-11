@@ -23,7 +23,7 @@ class Grid
 {
 private:
   char cells[GRID_X_AXIS_MAX][GRID_Y_AXIS_MAX];
-
+  
 public:
 /* -----------------------------------------------------------------------------------------
  * Function: Grid::Grid

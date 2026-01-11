@@ -8,8 +8,6 @@
 
 class AiPlayer : public Player
 {
-private:
-    /* data */
 public:
     AiPlayer(const char* name);
     ~AiPlayer();
@@ -18,5 +16,3 @@ public:
     virtual bool getOrientationToPlaceShip();
     int getRandomCoordinate();
 };
-
-
