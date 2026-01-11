@@ -15,31 +15,62 @@ HumanPlayer::HumanPlayer(const char* name) : Player(name)
 int HumanPlayer::getRowToPlaceShip()
 {
     std::cout << "Please choose a row (0-9)" << std::endl;
+    std::string str;
     int row = -1;
     while (!(row >= 0 && row <= 9))
     {
-        std::cin >> row;
-        //row--;
+        std::cin >> str;
+        try
+        {
+            row = std::stoi(str);
+        }
+        catch(const std::invalid_argument& e)
+        {
+            std::cout << "Invalid input, try again" << std::endl;
+            continue;
+        }
+        catch(const std::out_of_range& e)
+        {
+            std::cout << "Invalid row number, try again" << std::endl;
+            continue;
+        }
         if (!(row >= 0 && row <= 9))
         {
             std::cout << "Invalid row number, try again" << std::endl;
         }  
     }
+    std::cout << "DEBUG: printing row" << row << std::endl;
     return row;
 }
 
 int HumanPlayer::getColToPlaceShip()
 {
     std::cout << "Please choose a column (0-9)" << std::endl;
+    std::string str;
     int column = -1;
     while (!(column >= 0 && column <= 9))
     {
-        std::cin >> column;
+        std::cin >> str;
+        try
+        {
+            column = std::stoi(str);
+        }
+        catch(const std::invalid_argument& e)
+        {
+            std::cout << "Invalid input, try again" << std::endl;
+            continue;
+        }
+        catch(const std::out_of_range& e)
+        {
+            std::cout << "Invalid column number, try again" << std::endl;
+            continue;
+        }
         if (!(column >= 0 && column <= 9))
         {
             std::cout << "Invalid column number, try again" << std::endl;
         }  
     }
+    std::cout << "DEBUG: printing column" << column << std::endl;
     return column;
 }
 

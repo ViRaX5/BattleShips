@@ -40,7 +40,8 @@ void Game::start()
     std::cout << player2->getName() << "'s board:" << std::endl;
     player2->getGrid().printGrid();
     std::cout << "Congragulation!\n" << (p1Won ? player1->getName() : player2->getName()) << " won!" << std::endl;
-    
+    delete player1;
+    delete player2;
     //  std::cout << "\nWinner is: " << winner->getName() << "\n";
     //  WinnerConfetti(winner->getName());
 }

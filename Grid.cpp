@@ -118,7 +118,7 @@ void Grid::print(bool showAxes, bool hideShips) const
   for (int i = 0; i < N*2; ++i){cout << "+\n";}
   
   // Print each row: row number + cells
-  for (int row = 0; r < N; ++row)
+  for (int row = 0; row < N; ++row)
   {
     // setw(*) = prevents misalingments -> make sure there is a space ;
     if(showAxes) cout<<setw(2) <<row<< " | ";
