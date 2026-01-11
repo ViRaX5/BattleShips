@@ -87,38 +87,41 @@ char Grid::getCell(int row, int col) const
 // Helper Funcs:
 void Grid::printGrid()
 {
-  for (int i = 0; i < GRID_X_AXIS_MAX; i++)
-  {
-    for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
-    {
-      std::cout << cells[i][j] << " ";
-    }
-    std::cout << std::endl;
-  }
+  // for (int i = 0; i < GRID_X_AXIS_MAX; i++)
+  // {
+  //   for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
+  //   {
+  //     std::cout << cells[i][j] << " ";
+  //   }
+  //   std::cout << std::endl;
+  // }
+  print(true,true); // show axes , hide ships.
   
 }
 
 void Grid::print(bool showAxes, bool hideShips) const
 {
   using namespace std;
-  const int N = 10;
+  const int N = 10; // GRID_BoardSize
 
   // if showAxes available :
   // " " gives space so the numbers align above the columns.
   // Loop prints: 0 1 2 3 4 5 6 7 8 9
+  // --- top axis ---
   if(showAxes)
   {
     cout<<"     ";
     for(int col = 0; col < N; ++col) {cout<<col<<" ";}
-    cout<< "+\n";
+    cout<< "\n";
   }
   
   // Print the top border line (each cell is 2 -> N*2)
-  cout<< "  +";
-  for (int i = 0; i < N*2; ++i){cout << "+\n";}
+  cout<< "   +";
+  for (int i = 0; i < N*2; ++i){cout << "-";}
+  cout << "+\n";  
   
   // Print each row: row number + cells
-  for (int row = 0; r < N; ++row)
+  for (int row = 0; row < N; ++row)
   {
     // setw(*) = prevents misalingments -> make sure there is a space ;
     if(showAxes) cout<<setw(2) <<row<< " | ";
@@ -135,7 +138,7 @@ void Grid::print(bool showAxes, bool hideShips) const
   }
   //
   cout<<"   +";
-  for (int i = 0; i < N * 2; ++i) {cout<<"-";}
+  for (int i = 0; i < N * 2 + 1; ++i) {cout<<"-";}
   cout<<"+\n";
   
 }

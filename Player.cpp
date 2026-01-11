@@ -133,19 +133,20 @@ bool Player::allShipsSunk() const
 void Player::displayGrid()
 {
     // grid.printGrid();
-    for (int i = 0; i < GRID_X_AXIS_MAX; i++)
-    {
-        for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
-        {
-            if (grid.getCell(i, j) == 'S')
-            {
-                std::cout << "~ ";
-            }
-            else
-            {
-                std::cout << grid.getCell(i, j) << " ";
-            }
-        }
-        std::cout << std::endl;
-    }
+    // for (int i = 0; i < GRID_X_AXIS_MAX; i++)
+    // {
+    //     for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
+    //     {
+    //         if (grid.getCell(i, j) == 'S')
+    //         {
+    //             std::cout << "~ ";
+    //         }
+    //         else
+    //         {
+    //             std::cout << grid.getCell(i, j) << " ";
+    //         }
+    //     }
+    //     std::cout << std::endl;
+    // }
+    grid.print(true,true);
 }

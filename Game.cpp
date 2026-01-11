@@ -3,6 +3,7 @@
 // -------------------------------------------
 #include "Game.hpp"
 // -------------------------------------------
+static void winnerConfetti(const char* winnerName);
 
 Game::Game(Player* p1, Player* p2)
 {
@@ -19,6 +20,17 @@ void Game::setup()
 
 void Game::start()
 {
+    //--------------------------------------------------------------------
+    // CONFETTI TESTI:
+    char t = 0;
+    std::cout << "Type 'c' to test, or press Enter to start: ";
+    //std::getline(std::cin, cmd);
+    std::cin >> t;
+
+    if (t == 'c' || t == 'C')
+    { winnerConfetti("TEST MODE"); return;}
+    //--------------------------------------------------------------------
+
     bool p1Won = true;
     while (true)
     {
@@ -36,13 +48,17 @@ void Game::start()
         displayStatus();
     }
     std::cout << player1->getName() << "'s board:" << std::endl;
-    player1->getGrid().printGrid();
+    //player1->getGrid().printGrid();
+    player1->getGrid().print();
     std::cout << player2->getName() << "'s board:" << std::endl;
-    player2->getGrid().printGrid();
+    //player2->getGrid().printGrid();
+    player2->getGrid().print();
     std::cout << "Congragulation!\n" << (p1Won ? player1->getName() : player2->getName()) << " won!" << std::endl;
     
-    //  std::cout << "\nWinner is: " << winner->getName() << "\n";
-    //  WinnerConfetti(winner->getName());
+    // Confetti - YAY
+    //std::cout << "\n Winner is: " << winner->getName() << "\n";
+    //winnerConfetti(winner->getName());
+    winnerConfetti( (p1Won ? player1->getName() : player2->getName()) );
 }
 
 bool Game::isGameOver() const
@@ -54,7 +70,8 @@ void Game::displayStatus()
 {
     using namespace std;
     cout << player1->getName() << "'s board:" << endl;
-    player1->displayGrid();
+    //player1->displayGrid();
+    player1->getGrid().print(true,true);   // show Axes, hide ships;
     // cout << player2->getName() << "'s board:" << endl;
     // player2->displayGrid();
 }
@@ -76,7 +93,10 @@ static void CLEAR_SCREEN()
     #ifndef _WIN32
         system("cls");
     #else
-    cout << "\x1B[2J\x1B[X";
+    //cout << "\x1B[2J\x1B[X";
+    
+    // Works perfectly in WSL/Linux terminals
+    cout << "\033[2J\033[H" << std::flush;
     #endif
 }
 
@@ -101,7 +121,18 @@ static void winnerConfetti(const char* winnerName)
         cout<<"   ";
         for (int col = 0; col < 45; ++col){ conf[pick(rng)];}
         cout<<"\n";
+        // added for clean the screen and make anim effect;
+        cout<<flush;
     }
     this_thread::sleep_for(chrono::milliseconds(75));
     
+}
+// Small Fix for Bad Input::
+#include <limits>
+#include <iostream>
+
+static void ClearBadInput()
+{
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
