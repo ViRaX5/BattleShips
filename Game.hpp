@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
@@ -35,7 +35,7 @@ public:
     void start();
 
     bool isGameOver() const;
-    
+
     void displayStatus();
 };
 

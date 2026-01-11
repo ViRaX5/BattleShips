@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267 
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
@@ -67,6 +67,6 @@ public:
     virtual int getColToPlaceShip() = 0;
 
     virtual bool getOrientationToPlaceShip() = 0;
-    
+
     inline virtual Grid getGrid() const {return grid;}
 };

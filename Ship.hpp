@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
@@ -27,7 +27,7 @@ public:
  * Notes   : Initializes hit counter (or hit array) to zero.
  * ----------------------------------------------------------------------------------------- */
   Ship(const char *shipName, int shipSize): size(shipSize) ,hitsTaken(0) {name = new char[strlen(shipName) + 1]; strcpy(name, shipName);}
-  
+
   virtual ~Ship() {delete[] name;}
 
   /* -----------------------------------------------------------------------------------------

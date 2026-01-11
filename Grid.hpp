@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
@@ -22,9 +22,7 @@
 class Grid
 {
 private:
-  /* data */
   char cells[GRID_X_AXIS_MAX][GRID_Y_AXIS_MAX];
-  //Helper Funcs:
 
 public:
 /* -----------------------------------------------------------------------------------------
