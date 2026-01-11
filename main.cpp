@@ -1,11 +1,14 @@
-//THIS IS AN EXAMPLE!!! YOU CAN CHANGE IT
-
+// Dor mandel;      ID : 315313825
+// Amit Lachman;    ID : 207448267
+// ---------------------------------------
 #include <iostream>
 #include <cstdlib>   
-#include <ctime>     
+#include <ctime>  
+// -------------------------------------------   
 #include "Game.hpp"
 #include "HumanPlayer.hpp"
 #include "AiPlayer.hpp"
+// -------------------------------------------
 
 int main() {
     // Seed the random number generator for AI placement and moves

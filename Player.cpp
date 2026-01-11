@@ -1,4 +1,7 @@
-//
+// Dor mandel;      ID : 315313825
+// Amit Lachman;    ID : 207448267 
+// -------------------------------------------
+
 #include "Player.hpp"
 #include <string.h>
 

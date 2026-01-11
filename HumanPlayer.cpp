@@ -1,6 +1,8 @@
-//
+// Dor mandel;      ID : 315313825
+// Amit Lachman;    ID : 207448267
 // -------------------------------------------
 #include "HumanPlayer.hpp"
+// -------------------------------------------
 #include <string>
 #include <algorithm>
 #include <cctype>
