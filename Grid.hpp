@@ -19,11 +19,6 @@
 // M = Miss
 // horizontal = 1(Up/Down) : 0(Left/Right) ;
 
-//Optional Helpers?
-//struct for Coord?
-//enum Orientation{horizontal,Vertical};
-//enum AttackResult{Hit,Miss,AlreadyShot,Invalid};
-
 class Grid
 {
 private:
@@ -40,7 +35,7 @@ public:
  * Notes   : Called automatically when a Grid is created.
  * ----------------------------------------------------------------------------------------- */
   Grid();
-  
+
   ~Grid() {}
 
 /* -----------------------------------------------------------------------------------------
@@ -105,6 +100,10 @@ public:
   bool isInBounds(int row,int col) const;
 
   bool isAlreadyShot(int row, int col) const;
-
+  
+  //Optional Helpers?
+  //struct for Coord?
+  //enum Orientation{horizontal,Vertical};
+  //enum AttackResult{Hit,Miss,AlreadyShot,Invalid};
 };
 

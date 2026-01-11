@@ -87,16 +87,7 @@ char Grid::getCell(int row, int col) const
 // Helper Funcs:
 void Grid::printGrid()
 {
-  // for (int i = 0; i < GRID_X_AXIS_MAX; i++)
-  // {
-  //   for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
-  //   {
-  //     std::cout << cells[i][j] << " ";
-  //   }
-  //   std::cout << std::endl;
-  // }
-  print(true,true); // show axes , hide ships.
-  
+print(true,true); // show axes , hide ships. 
 }
 
 void Grid::print(bool showAxes, bool hideShips) const

@@ -20,8 +20,11 @@ public:
      * Notes   : Does not run the game loop until start() is called.
      * ----------------------------------------------------------------------------------------- */
     Game(Player* p1, Player* p2);
+
     ~Game() {}
+
     void setup();
+
     /* -----------------------------------------------------------------------------------------
      * Function: Game::start
      * Purpose : Runs the full turn-based game loop until one player loses all ships.
@@ -30,7 +33,9 @@ public:
      * Notes   : After each move: print boards, then check win condition.
      * ----------------------------------------------------------------------------------------- */
     void start();
+
     bool isGameOver() const;
+    
     void displayStatus();
 };
 

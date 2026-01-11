@@ -20,17 +20,6 @@ void Game::setup()
 
 void Game::start()
 {
-    //--------------------------------------------------------------------
-    // CONFETTI TESTI:
-    char t = 0;
-    std::cout << "Type 'c' to test, or press Enter to start: ";
-    //std::getline(std::cin, cmd);
-    std::cin >> t;
-
-    if (t == 'c' || t == 'C')
-    { winnerConfetti("TEST MODE"); return;}
-    //--------------------------------------------------------------------
-
     bool p1Won = true;
     while (true)
     {
@@ -76,6 +65,7 @@ void Game::displayStatus()
     // player2->displayGrid();
 }
 
+/*
 //-----------------------------------------------------
 // WINNER CONFETTI ANIMATION (Tryout)::
 //-----------------------------------------------------
@@ -136,3 +126,15 @@ static void ClearBadInput()
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
+
+    //--------------------------------------------------------------------
+    // CONFETTI TESTI:
+    char t = 0;
+    std::cout << "Type 'c' to test, or press Enter to start: ";
+    //std::getline(std::cin, cmd);
+    std::cin >> t;
+
+    if (t == 'c' || t == 'C')
+    { winnerConfetti("TEST MODE"); return;}
+    //--------------------------------------------------------------------
+*/
