@@ -12,6 +12,7 @@
 #include <iostream>
 #include <exception>
 #include <stdexcept>
+#include <iomanip>
 // -------------------------------------------
 // S = Ship
 // X = Hit
@@ -47,5 +48,11 @@ public:
   char getCell(int row,int col)const;
 
   void printGrid();
+
+  void print(bool showAxes, bool hideShips) const;
+
+  bool Grid::isInBounds(int row, int col) const;
+
+  bool Grid::isAlreadyShot(int row, int col) const;
 };
 

@@ -93,3 +93,56 @@ void Grid::printGrid()
   }
   
 }
+
+void Grid::print(bool showAxes, bool hideShips) const
+{
+  using namespace std;
+  const int N = 10;
+
+  // if showAxes available :
+  // " " gives space so the numbers align above the columns.
+  // Loop prints: 0 1 2 3 4 5 6 7 8 9
+  if(showAxes)
+  {
+    cout<<"     ";
+    for(int col = 0; col < N; ++col) {cout<<col<<" ";}
+    cout<< "+\n";
+  }
+  
+  // Print the top border line (each cell is 2 -> N*2)
+  cout<< "  +";
+  for (int i = 0; i < N*2; ++i){cout << "+\n";}
+  
+  // Print each row: row number + cells
+  for (int row = 0; row < N; ++row)
+  {
+    // setw(*) = prevents misalingments -> make sure there is a space ;
+    if(showAxes) cout<<setw(2) <<row<< " | ";
+    else cout<< "| ";
+
+    for(int col = 0 ; col < N ; ++col)
+    {
+      char ch = cells[row][col];
+      if(hideShips && ch =='S')
+        ch ='~';
+      cout<<ch<<" ";
+    }
+    cout<<"|\n";
+  }
+  //
+  cout<<"   +";
+  for (int i = 0; i < N * 2; ++i) {cout<<"-";}
+  cout<<"+\n";
+  
+}
+
+bool Grid::isInBounds(int row, int col) const
+{
+  return VALID_GRID_INPUT(row,col);
+}
+
+bool Grid::isAlreadyShot(int row, int col) const
+{
+  char ch = cells[row][col];
+  return (ch == 'X' || ch == 'M');
+}
