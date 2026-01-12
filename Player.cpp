@@ -23,6 +23,7 @@ Player::Player(const char *name)
         strcpy(_playerName, "Unknown");
     }
     // **************************************
+    
     BattleShip *b = new BattleShip();
     Carrier *ca = new Carrier();
     Cruiser *cr = new Cruiser();

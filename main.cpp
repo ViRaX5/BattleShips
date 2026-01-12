@@ -22,7 +22,9 @@ int main() {
     // Create  2 AiPlayers:
     Player* p1 = new AiPlayer("PC1");
     Player* p2 = new AiPlayer("PC2");
-
+    // for mem_Alloc:
+    // ~Game() { delete _player1; delete _player2; }
+    
     // Create the Game object with the two players
     Game game(p1, p2);
 

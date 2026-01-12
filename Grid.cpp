@@ -2,7 +2,8 @@
 // Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #include "Grid.hpp"
-//Added by Dor for GridPrint:
+
+//Added for GridPrint:
 #include <iostream>
 #include <iomanip>
 // -------------------------------------------
@@ -87,7 +88,7 @@ char Grid::getCell(int row, int col) const
 // Helper Funcs:
 void Grid::printGrid()
 {
-print(true,true); // show axes , hide ships. 
+  print(true,true); // show axes , hide ships. 
 }
 
 void Grid::print(bool showAxes, bool hideShips) const

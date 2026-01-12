@@ -3,8 +3,9 @@
 // -------------------------------------------
 #include "Game.hpp"
 // -------------------------------------------
-#define MAX_TURNS_PER_PLAYER 200
+#define MAX_TURNS_PER_PLAYER 100
 // -------------------------------------------
+
 Game::Game(Player *p1, Player *p2)
 {
     Game::_player1 = p1;
