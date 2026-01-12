@@ -6,6 +6,7 @@
 #include <string>
 #include <algorithm>
 #include <cctype>
+#include <iostream>
 // -------------------------------------------
 
 HumanPlayer::HumanPlayer(const char* name) : Player(name){}

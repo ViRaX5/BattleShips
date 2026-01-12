@@ -2,6 +2,7 @@
 // Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #include "AiPlayer.hpp"
+#include <cstdlib>      // For rand() and srand()
 // -------------------------------------------
 
 AiPlayer::AiPlayer(const char* name) : Player(name) {}

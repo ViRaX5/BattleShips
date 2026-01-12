@@ -1,5 +1,5 @@
 // Dor Mandel;      ID : 315313825
-// Amit Lachmann;   ID : 207448267 
+// Amit Lachmann;   ID : 207448267
 // -------------------------------------------
 #include "Player.hpp"
 #include <string.h>
@@ -7,8 +7,22 @@
 
 Player::Player(const char *name)
 {
-    _playerName = new char[strlen(name) + 1];
-    strcpy(_playerName, name);
+    //_playerName = new char[strlen(name) + 1];
+    // strcpy(_playerName, name);
+
+    // **************************************
+    // Safety check for null pointer
+    if (name)
+    {
+        _playerName = new char[strlen(name) + 1];
+        strcpy(_playerName, name);
+    }
+    else
+    {
+        _playerName = new char[8];
+        strcpy(_playerName, "Unknown");
+    }
+    // **************************************
     BattleShip *b = new BattleShip();
     Carrier *ca = new Carrier();
     Cruiser *cr = new Cruiser();
@@ -26,7 +40,12 @@ Player::~Player()
     delete[] _playerName;
     for (int i = 0; i < NUM_OF_SHIPS; i++)
     {
-        delete ships[i];
+        // delete ships[i];
+        if (ships[i])
+        {
+            delete ships[i];
+            ships[i] = nullptr; // 
+        }
     }
 }
 
@@ -85,14 +104,14 @@ void Player::makeMove(Player *opponent)
         {
             for (int i = 0; i < NUM_OF_SHIPS; i++)
             {
-                //std::cout << "Debug, searching ships, current ship is: " << ships[i]->getName() << std::endl;
+                // std::cout << "Debug, searching ships, current ship is: " << ships[i]->getName() << std::endl;
                 if (opponent->ships[i]->isHorizontal())
                 {
                     if (row == opponent->ships[i]->getRow())
                     {
                         if (col >= opponent->ships[i]->getCol() && col < (opponent->ships[i]->getCol() + opponent->ships[i]->getSize()))
                         {
-                            //std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
+                            // std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
                             opponent->ships[i]->takeHit();
                             break;
                         }
@@ -104,7 +123,7 @@ void Player::makeMove(Player *opponent)
                     {
                         if (row >= opponent->ships[i]->getRow() && row < (opponent->ships[i]->getRow() + opponent->ships[i]->getSize()))
                         {
-                            //std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
+                            // std::cout << "Debug, ship name is: " << opponent->ships[i]->getName() << std::endl;
                             opponent->ships[i]->takeHit();
                             break;
                         }
@@ -133,4 +152,4 @@ bool Player::allShipsSunk() const
     return true;
 }
 
-void Player::displayGrid(){grid.print(true,true);}
+void Player::displayGrid() { grid.print(true, true); }

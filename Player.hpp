@@ -29,8 +29,8 @@ public:
     * Notes   : Does not start gameplay; only sets initial state.
     * ----------------------------------------------------------------------------------------- */ 
     Player(const char* name);
-    
-    ~Player();
+    /* added virtual to destructor */
+    virtual ~Player();
 
     /* -----------------------------------------------------------------------------------------
     * Function: Player::placeAllShips

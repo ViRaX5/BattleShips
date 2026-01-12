@@ -21,7 +21,7 @@ public:
      * ----------------------------------------------------------------------------------------- */
     Game(Player* p1, Player* p2);
 
-    ~Game() {}
+    ~Game() { delete _player1; delete _player2; }
 
     void setup();
 

@@ -10,7 +10,7 @@ class AiPlayer : public Player
 {
 public:
     AiPlayer(const char* name);
-    ~AiPlayer();
+    ~AiPlayer(){}
     virtual int getRowToPlaceShip();
     virtual int getColToPlaceShip();
     virtual bool getOrientationToPlaceShip();

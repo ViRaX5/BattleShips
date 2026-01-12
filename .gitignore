@@ -37,5 +37,18 @@
 *.out
 *.app
 
+*.o
+battleships
+
 # debug information files
 *.dwo
+
+# Logs
+*.log
+stress_test_results.log
+
+# OS files
+.DS_Store
+
+# git.txt - text of cmnds
+git.txt

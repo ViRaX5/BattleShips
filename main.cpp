@@ -16,8 +16,12 @@ int main() {
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     // Create two players: one human, one AI
-    Player* p1 = new HumanPlayer("Human");
-    Player* p2 = new AiPlayer("Computer");
+    // Player* p1 = new HumanPlayer("Human");
+    // Player* p2 = new AiPlayer("Computer");
+
+    // Create  2 AiPlayers:
+    Player* p1 = new AiPlayer("PC1");
+    Player* p2 = new AiPlayer("PC2");
 
     // Create the Game object with the two players
     Game game(p1, p2);
