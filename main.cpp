@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // ---------------------------------------
 #include <iostream>
 #include <cstdlib>   
@@ -19,6 +19,10 @@ int main() {
     Player* p1 = new HumanPlayer("Human");
     Player* p2 = new AiPlayer("Computer");
 
+    // Create  2 AiPlayers:
+    // Player* p1 = new AiPlayer("PC1");
+    // Player* p2 = new AiPlayer("PC2");
+    
     // Create the Game object with the two players
     Game game(p1, p2);
 
@@ -27,10 +31,6 @@ int main() {
 
     // Start the turn-by-turn gameplay
     game.start();
-
-    // If needed, you could delete the players here, but assume Game or Player destructors handle cleanup.
-    // delete p1;
-    // delete p2;
 
     return 0;
 }

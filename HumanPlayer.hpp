@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
@@ -7,15 +7,13 @@
 // -------------------------------------------
 
 class HumanPlayer : public Player
-{
-private:
-    /* data */
+{    
 public:
     HumanPlayer(const char* name);
-    ~HumanPlayer() {}
+    ~HumanPlayer(){}
+    virtual void makeMove(Player* opponent);
     virtual int getRowToPlaceShip();
     virtual int getColToPlaceShip();
     virtual bool getOrientationToPlaceShip();
 };
-
 

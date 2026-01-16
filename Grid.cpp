@@ -1,8 +1,9 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #include "Grid.hpp"
-//Added by Dor for GridPrint:
+
+//Added for GridPrint:
 #include <iostream>
 #include <iomanip>
 // -------------------------------------------
@@ -21,7 +22,6 @@ Grid::Grid()
 bool Grid::inBounds(int row, int col, int shipSize, bool horizontal) const
 {
   using namespace std;
-  // if ((row<0)||(row>=GRID_X_AXIS_MAX)||(col<0)||(col>=GRID_Y_AXIS_MAX)) return false;
   if (!VALID_GRID_INPUT(row, col))
   {
     cout << "Invalid row/column" << endl;
@@ -85,37 +85,31 @@ char Grid::getCell(int row, int col) const
 }
 
 // Helper Funcs:
-void Grid::printGrid() const
+void Grid::printGrid()
 {
-  for (int i = 0; i < GRID_X_AXIS_MAX; i++)
-  {
-    for (int j = 0; j < GRID_Y_AXIS_MAX; j++)
-    {
-      std::cout << cells[i][j] << " ";
-    }
-    std::cout << std::endl;
-  }
-  
+  print(true,true); // show axes , hide ships. 
 }
 
 void Grid::print(bool showAxes, bool hideShips) const
 {
   using namespace std;
-  const int N = 10;
+  const int N = 10; // GRID_BoardSize
 
   // if showAxes available :
   // " " gives space so the numbers align above the columns.
   // Loop prints: 0 1 2 3 4 5 6 7 8 9
+  // --- top axis ---
   if(showAxes)
   {
     cout<<"     ";
     for(int col = 0; col < N; ++col) {cout<<col<<" ";}
-    cout<< "+\n";
+    cout<< "\n";
   }
   
   // Print the top border line (each cell is 2 -> N*2)
-  cout<< "  +";
-  for (int i = 0; i < N*2; ++i){cout << "+\n";}
+  cout<< "   +";
+  for (int i = 0; i < N*2; ++i){cout << "-";}
+  cout << "-+\n";  
   
   // Print each row: row number + cells
   for (int row = 0; row < N; ++row)
@@ -135,7 +129,7 @@ void Grid::print(bool showAxes, bool hideShips) const
   }
   //
   cout<<"   +";
-  for (int i = 0; i < N * 2; ++i) {cout<<"-";}
+  for (int i = 0; i < N * 2 + 1; ++i) {cout<<"-";}
   cout<<"+\n";
   
 }

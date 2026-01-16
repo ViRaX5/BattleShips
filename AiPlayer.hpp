@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
@@ -8,15 +8,12 @@
 
 class AiPlayer : public Player
 {
-private:
-    /* data */
 public:
     AiPlayer(const char* name);
-    ~AiPlayer() {}
+    ~AiPlayer(){}
     virtual int getRowToPlaceShip();
     virtual int getColToPlaceShip();
     virtual bool getOrientationToPlaceShip();
     int getRandomCoordinate();
+    void virtual makeMove(Player* opponent);
 };
-
-

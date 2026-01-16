@@ -1,16 +1,15 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #include "HumanPlayer.hpp"
 // -------------------------------------------
 #include <string>
 #include <algorithm>
 #include <cctype>
+#include <iostream>
 // -------------------------------------------
 
-HumanPlayer::HumanPlayer(const char* name) : Player(name)
-{
-}
+HumanPlayer::HumanPlayer(const char* name) : Player(name){}
 
 int HumanPlayer::getRowToPlaceShip()
 {
@@ -94,4 +93,56 @@ bool HumanPlayer::getOrientationToPlaceShip()
         } 
     }
     return true;
+}
+
+void HumanPlayer::makeMove(Player* opponent)
+{
+    std::cout << "It is " << getName() << "'s turn!" << std::endl;
+    while (true)
+    {
+        std::cout << opponent->getName() << "'s grid:" << std::endl;
+        opponent->displayGrid();
+        std::cout << "Make an attack! Where would you like to attack?" << std::endl;
+        int row = getRowToPlaceShip();
+        int col = getColToPlaceShip();
+        if (opponent->getGrid().getCell(row, col) == '~')
+        {
+            opponent->getGrid().markMiss(row, col);
+            break;
+        }
+        else if (opponent->getGrid().getCell(row, col) == 'S')
+        {
+            for (int i = 0; i < NUM_OF_SHIPS; i++)
+            {
+                if (opponent->getShips()[i]->isHorizontal())
+                {
+                    if (row == opponent->getShips()[i]->getRow())
+                    {
+                        if (col >= opponent->getShips()[i]->getCol() && col < (opponent->getShips()[i]->getCol() + opponent->getShips()[i]->getSize()))
+                        {
+                            opponent->getShips()[i]->takeHit();
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    if (col == opponent->getShips()[i]->getCol())
+                    {
+                        if (row >= opponent->getShips()[i]->getRow() && row < (opponent->getShips()[i]->getRow() + opponent->getShips()[i]->getSize()))
+                        {
+                            opponent->getShips()[i]->takeHit();
+                            break;
+                        }
+                    }
+                }
+            }
+            opponent->getGrid().markHit(row, col);
+            break;
+        }
+        else
+        {
+            std::cout << "You are trying to hit somewhere you have already shot at, try again." << std::endl;
+        }
+    }
 }

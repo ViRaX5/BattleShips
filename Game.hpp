@@ -1,9 +1,11 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
 #include "Player.hpp"
+// -------------------------------------------
+#define MAX_TURNS_PER_PLAYER 100
 // -------------------------------------------
 
 class Game
@@ -20,8 +22,11 @@ public:
      * Notes   : Does not run the game loop until start() is called.
      * ----------------------------------------------------------------------------------------- */
     Game(Player* p1, Player* p2);
-    ~Game() {}
+
+    ~Game() { delete player1; delete player2; }
+
     void setup();
+
     /* -----------------------------------------------------------------------------------------
      * Function: Game::start
      * Purpose : Runs the full turn-based game loop until one player loses all ships.
@@ -30,7 +35,9 @@ public:
      * Notes   : After each move: print boards, then check win condition.
      * ----------------------------------------------------------------------------------------- */
     void start();
+
     bool isGameOver() const;
+
     void displayStatus();
 };
 

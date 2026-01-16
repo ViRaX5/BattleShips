@@ -1,11 +1,11 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
 #include "Ship.hpp"
 // -------------------------------------------
-
+// Carrier Size = 5
 class Carrier :  public Ship
 { 
 public:

@@ -1,11 +1,11 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267 
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #include "Ship.hpp"
 #include <iostream>
 // -------------------------------------------
 
-/* summary:
+/*
 increments hitsTaken and Prints "<shipname> got hit!"
 */
 void Ship::takeHit()

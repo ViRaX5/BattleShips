@@ -1,5 +1,5 @@
-// Dor mandel;      ID : 315313825
-// Amit Lachman;    ID : 207448267
+// Dor Mandel;      ID : 315313825
+// Amit Lachmann;   ID : 207448267 
 // -------------------------------------------
 #pragma once
 // -------------------------------------------
@@ -7,6 +7,7 @@
 #include <string.h>
 // -------------------------------------------
 using std::string;
+// -------------------------------------------
 
 class Ship
 {
@@ -27,7 +28,9 @@ public:
  * Notes   : Initializes hit counter (or hit array) to zero.
  * ----------------------------------------------------------------------------------------- */
   Ship(const char *shipName, int shipSize): size(shipSize) ,hitsTaken(0) {name = new char[strlen(shipName) + 1]; strcpy(name, shipName);}
+
   virtual ~Ship() {delete[] name;}
+
   /* -----------------------------------------------------------------------------------------
  * Function: Ship::takeHit
  * Purpose : Registers a successful hit on this ship.
@@ -36,6 +39,7 @@ public:
  * Notes   : Should not exceed ship size; used to detect when ship becomes sunk.
  * ----------------------------------------------------------------------------------------- */
   virtual void takeHit();
+
   /* -----------------------------------------------------------------------------------------
  * Function: Ship::isSunk
  * Purpose : Checks whether the ship is fully destroyed.
@@ -44,6 +48,7 @@ public:
  * Notes   : True when hitCount == size (or all parts hit).
  * ----------------------------------------------------------------------------------------- */
   inline bool isSunk() const {return  hitsTaken >= size;}
+
   /* -----------------------------------------------------------------------------------------
  * Function: Ship::getSize
  * Purpose : Returns ship length (number of cells).
@@ -52,6 +57,7 @@ public:
  * Notes   : Used for placement validation and UI messages.
  * ----------------------------------------------------------------------------------------- */
   inline int getSize() {return size;}
+
   /* -----------------------------------------------------------------------------------------
  * Function: <CLASS>::setCoord
  * Purpose : Sets the ship's starting coordinate (row, col) and orientation (horizontal/vertical).
@@ -60,7 +66,8 @@ public:
  * Notes   : Assumes the caller already validated that the coordinate + ship size fit the grid
  *           and that the placement does not overlap other ships.
  * ----------------------------------------------------------------------------------------- */
-  inline void setCoord(int r, int c, bool hor) {this->row = r; column = c; horizontal = hor;}
+  inline void setCoord(int r, int c, bool hor) {row = r; column = c; horizontal = hor;}
+
   /* -----------------------------------------------------------------------------------------
  * Function: <CLASS>::getRow
  * Purpose : Returns the starting row of this object (ship placement coordinate).
@@ -69,6 +76,7 @@ public:
  * Notes   : Does not validate bounds; should reflect previously set/valid coordinates.
  * ----------------------------------------------------------------------------------------- */
   inline int getRow() {return row;}
+
   /* -----------------------------------------------------------------------------------------
  * Function: <CLASS>::getCol
  * Purpose : Returns the starting column of this object (ship placement coordinate).
@@ -77,6 +85,7 @@ public:
  * Notes   : Does not validate bounds; should reflect previously set/valid coordinates.
  * ----------------------------------------------------------------------------------------- */
   inline int getCol() {return column;}
+
   //inline void setHorizontal(bool hor) {horizontal = hor;}
   /* -----------------------------------------------------------------------------------------
  * Function: <CLASS>::isHorizontal
@@ -86,6 +95,7 @@ public:
  * Notes   : Orientation is typically set via setCoord(...).
  * ----------------------------------------------------------------------------------------- */
   inline bool isHorizontal() {return horizontal;}
+
 /* -----------------------------------------------------------------------------------------
  * Function: Ship::getName
  * Purpose : Returns a readable name for printing/UI.
