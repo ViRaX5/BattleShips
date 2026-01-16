@@ -17,7 +17,7 @@
 class Player
 {
 private:
-    char *_playerName;
+    char *playerName;
     Ship* ships[NUM_OF_SHIPS];
     Grid grid;
 public:
@@ -48,7 +48,7 @@ public:
     * Output  : none (or bool hit if you designed it so)
     * Notes   : Must handle invalid shots (out-of-bounds, repeated shots) before applying.
     * ----------------------------------------------------------------------------------------- */
-    void makeMove(Player* opponent);
+    virtual void makeMove(Player* opponent) = 0;
     /* -----------------------------------------------------------------------------------------
     * Function: Player::allShipsSunk
     * Purpose : Checks if the player's fleet is fully destroyed (lose condition).
@@ -60,7 +60,7 @@ public:
 
     void displayGrid();
 
-    inline virtual char* getName() {return _playerName;}
+    inline virtual char* getName() {return playerName;}
 
     virtual int getRowToPlaceShip() = 0;
 
@@ -68,5 +68,7 @@ public:
 
     virtual bool getOrientationToPlaceShip() = 0;
 
-    inline virtual Grid getGrid() const {return grid;}
+    inline virtual Grid& getGrid() {return grid;}
+
+    inline Ship** getShips() {return ships;}
 };

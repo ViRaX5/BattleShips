@@ -15,4 +15,5 @@ public:
     virtual int getColToPlaceShip();
     virtual bool getOrientationToPlaceShip();
     int getRandomCoordinate();
+    void virtual makeMove(Player* opponent);
 };

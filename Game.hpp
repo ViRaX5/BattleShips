@@ -5,12 +5,14 @@
 // -------------------------------------------
 #include "Player.hpp"
 // -------------------------------------------
+#define MAX_TURNS_PER_PLAYER 100
+// -------------------------------------------
 
 class Game
 {
 private:
-    Player* _player1;
-    Player* _player2;
+    Player* player1;
+    Player* player2;
 public:
     /* -----------------------------------------------------------------------------------------
      * Function: Game::Game
@@ -21,7 +23,7 @@ public:
      * ----------------------------------------------------------------------------------------- */
     Game(Player* p1, Player* p2);
 
-    ~Game() { delete _player1; delete _player2; }
+    ~Game() { delete player1; delete player2; }
 
     void setup();
 

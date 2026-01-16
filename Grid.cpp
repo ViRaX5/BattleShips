@@ -22,7 +22,6 @@ Grid::Grid()
 bool Grid::inBounds(int row, int col, int shipSize, bool horizontal) const
 {
   using namespace std;
-  // if ((row<0)||(row>=GRID_X_AXIS_MAX)||(col<0)||(col>=GRID_Y_AXIS_MAX)) return false;
   if (!VALID_GRID_INPUT(row, col))
   {
     cout << "Invalid row/column" << endl;

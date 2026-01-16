@@ -98,10 +98,5 @@ public:
   bool isInBounds(int row,int col) const;
 
   bool isAlreadyShot(int row, int col) const;
-  
-  //Optional Helpers?
-  //struct for Coord?
-  //enum Orientation{horizontal,Vertical};
-  //enum AttackResult{Hit,Miss,AlreadyShot,Invalid};
 };
 
